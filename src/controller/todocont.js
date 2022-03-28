@@ -5,7 +5,8 @@ const router= express.Router()
 router.post("/",authenticate,async(req,res)=>{
     try {
     const todo =await Todo.create({
-        title:req.body.title
+        title:req.body.title,
+        userId:req.body.userId
     })
     return res.status(201).send(todo)
     } catch (error) {
